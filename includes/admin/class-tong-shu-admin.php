@@ -12,7 +12,7 @@ class WPTS_Tong_Shu_Admin {
     const LICENSE_SERVER = 'wpts_license_server';
 
     // ⚠️ HIER die URL deines Lizenz-Servers eintragen!
-    const DEFAULT_SERVER = 'https://dein-server.de/tong-shu/server/api';
+    const DEFAULT_SERVER = 'https://buchversteher.de/tong-shu-license/api';
 
     public static function init() {
         add_action('admin_menu', [__CLASS__, 'add_menu']);
