@@ -41,7 +41,11 @@ class WPTS_Tong_Shu_Admin {
         if (!$license_key) {
             $license_key = get_option(self::LICENSE_OPTION, '');
         }
-        if (empty($license_key)) return false;
+        if (empty($license_key)) {
+            // Kein Key = kein Premium, egal was im Cache steht
+            update_option(self::LICENSE_STATUS, 'inactive');
+            return false;
+        }
 
         $server = get_option(self::LICENSE_SERVER, self::DEFAULT_SERVER);
         $site_url = home_url();
