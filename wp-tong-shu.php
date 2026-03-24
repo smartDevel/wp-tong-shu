@@ -3,7 +3,7 @@
  * Plugin Name: WP Tong Shu — Chinese Almanac
  * Plugin URI: https://github.com/smartDevel/wp-tong-shu
  * Description: Generates Tong Shu (Chinese Almanac) calendar data — daily favorable/unfavorable activities, Heavenly Stems & Earthly Branches, lucky guidance.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Herbert Sablotny
  * License: GPL v2 or later
  * Text Domain: wp-tong-shu
@@ -12,17 +12,19 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('WPTS_VERSION', '0.1.0');
+define('WPTS_VERSION', '0.2.0');
 define('WPTS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WPTS_PLUGIN_URL', plugin_dir_url(__FILE__));
 
-// Autoload
+// Includes
 require_once WPTS_PLUGIN_DIR . 'includes/class-tong-shu-core.php';
 require_once WPTS_PLUGIN_DIR . 'includes/class-tong-shu-calendar.php';
 require_once WPTS_PLUGIN_DIR . 'includes/class-tong-shu-shortcodes.php';
+require_once WPTS_PLUGIN_DIR . 'includes/admin/class-tong-shu-admin.php';
 
 // Initialize
 add_action('plugins_loaded', function () {
     WPTS_Tong_Shu_Core::init();
     WPTS_Tong_Shu_Shortcodes::init();
+    WPTS_Tong_Shu_Admin::init();
 });
