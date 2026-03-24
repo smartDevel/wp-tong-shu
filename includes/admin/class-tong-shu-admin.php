@@ -76,7 +76,18 @@ class WPTS_Tong_Shu_Admin {
     }
 
     public static function is_premium() {
-        return self::verify_license();
+        $status = get_option(self::LICENSE_STATUS, 'inactive');
+        $key = get_option(self::LICENSE_OPTION, '');
+
+        // Kein Key = kein Premium
+        if (empty($key)) {
+            if ($status !== 'inactive') update_option(self::LICENSE_STATUS, 'inactive');
+            return false;
+        }
+
+        // Nur Cache nutzen — nicht bei jedem Seitenaufruf Server kontaktieren
+        // Server-Verifizierung nur bei "Lizenz verifizieren" Button
+        return $status === 'active';
     }
 
     public static function render_settings_page() {
