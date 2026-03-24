@@ -23,14 +23,15 @@ class WPTS_Tong_Shu_Shortcodes {
     }
 
     /**
-     * [tong_shu_day] — PREMIUM
+     * [tong_shu_day] — FREE (basic) + PREMIUM (full)
      */
     public static function day_shortcode($atts) {
-        if (!WPTS_Tong_Shu_Admin::is_premium()) {
-            return '<div class="wpts-premium-locked"><p>⭐ Der <code>[tong_shu_day]</code> Shortcode ist ein Premium-Feature. <a href="' . admin_url('options-general.php?page=tong-shu-settings') . '">Lizenz eingeben →</a></p></div>';
-        }
         $atts = shortcode_atts(['year' => date('Y'), 'month' => date('n'), 'day' => date('j')], $atts);
-        return WPTS_Tong_Shu_Calendar::render_day(intval($atts['year']), intval($atts['month']), intval($atts['day']));
+        return WPTS_Tong_Shu_Calendar::render_day(
+            intval($atts['year']),
+            intval($atts['month']),
+            intval($atts['day'])
+        );
     }
 
     public static function ajax_navigate() {

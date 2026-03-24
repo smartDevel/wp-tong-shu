@@ -31,5 +31,9 @@
 .wpts-upgrade-notice { background: #fffbeb; border: 1px solid #f59e0b; border-radius: 8px; padding: 15px; margin-top: 15px; text-align: center; }
 .wpts-upgrade-notice a { color: #d97706; font-weight: 600; }
 .wpts-premium-locked { background: #f9fafb; border: 2px dashed #d1d5db; border-radius: 8px; padding: 30px; text-align: center; }
-.wpts-upgrade-btn { display: inline-block; background: #f59e0b; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 10px; }
+.wpts-premium-teaser { background: #fffbeb; border: 1px solid #f59e0b; border-radius: 8px; padding: 15px; margin-top: 15px; }
+.wpts-premium-teaser h4 { margin-bottom: 8px; }
+.wpts-locked-features { list-style: none; padding: 0; margin-bottom: 12px; }
+.wpts-locked-features li { color: #9ca3af; padding: 4px 0; }
+.wpts-locked-features li::before { content: '🔒 '; } background: #f59e0b; color: #fff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 10px; }
 .wpts-upgrade-btn:hover { background: #d97706; }

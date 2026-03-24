@@ -70,9 +70,12 @@ class WPTS_Tong_Shu_Calendar {
         $html .= '<h3>' . date('d.m.Y', mktime(0, 0, 0, $month, $day, $year)) . '</h3>';
         $html .= '<div class="wpts-stem-branch-large">' . $data['stem_branch'] . '</div>';
 
+        // FREE: Grundlegende Infos
         $html .= '<table class="wpts-info-table">';
         $html .= '<tr><td>Element</td><td>' . self::element_icon($data['element']) . ' ' . $data['element'] . '</td></tr>';
         $html .= '<tr><td>Tierkreis</td><td>' . self::zodiac_emoji($data['zodiac']) . ' ' . $data['zodiac'] . '</td></tr>';
+        $html .= '<tr><td>Himmelsstamm</td><td>' . $data['heavenly_stem'] . '</td></tr>';
+        $html .= '<tr><td>Erdischer Zweig</td><td>' . $data['earthly_branch'] . '</td></tr>';
 
         if ($is_premium) {
             $html .= '<tr><td>Glücksrichtung</td><td>' . $data['lucky_direction'] . '</td></tr>';
@@ -81,6 +84,7 @@ class WPTS_Tong_Shu_Calendar {
         $html .= '</table>';
 
         if ($is_premium) {
+            // Premium: Aktivitäten
             $html .= '<h4>✅ Günstig</h4><ul class="wpts-auspicious">';
             foreach ($data['auspicious'] as $a) {
                 $html .= '<li>' . $a['german'] . ' <small>(' . $a['chinese'] . ')</small></li>';
@@ -93,9 +97,15 @@ class WPTS_Tong_Shu_Calendar {
             }
             $html .= '</ul>';
         } else {
-            $html .= '<div class="wpts-premium-locked">';
-            $html .= '<p>⭐ <strong>Premium-Inhalt</strong></p>';
-            $html .= '<p>Günstige & ungünstige Aktivitäten, Glücksrichtungen und Konflikt-Tierkreiszeichen sind Premium-Features.</p>';
+            // FREE: Upgrade-Hinweis
+            $html .= '<div class="wpts-premium-teaser">';
+            $html .= '<h4>⭐ Premium-Inhalte</h4>';
+            $html .= '<ul class="wpts-locked-features">';
+            $html .= '<li>✅ Günstige Aktivitäten</li>';
+            $html .= '<li>❌ Ungünstige Aktivitäten</li>';
+            $html .= '<li>🧭 Glücksrichtungen</li>';
+            $html .= '<li>⚔️ Konflikt-Tierkreiszeichen (冲)</li>';
+            $html .= '</ul>';
             $html .= '<a href="' . admin_url('options-general.php?page=tong-shu-settings') . '" class="wpts-upgrade-btn">Premium freischalten →</a>';
             $html .= '</div>';
         }
