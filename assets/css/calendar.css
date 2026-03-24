@@ -1,0 +1,25 @@
+.wpts-calendar { max-width: 800px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.wpts-calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.wpts-calendar-header h3 { margin: 0; }
+.wpts-nav { background: #39b152; color: #fff; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; font-size: 16px; }
+.wpts-nav:hover { background: #2d8a41; }
+.wpts-weekdays, .wpts-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.wpts-weekday { text-align: center; font-weight: 600; padding: 8px; background: #f5f5f5; border-radius: 4px; }
+.wpts-day { background: #fff; border: 1px solid #eee; border-radius: 6px; padding: 8px; min-height: 80px; cursor: pointer; transition: box-shadow 0.2s; }
+.wpts-day:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.wpts-day-empty { background: transparent; border: none; cursor: default; }
+.wpts-day-empty:hover { box-shadow: none; }
+.wpts-today { border: 2px solid #39b152; background: #f0fdf4; }
+.wpts-day-number { font-size: 18px; font-weight: 700; }
+.wpts-stem-branch { font-size: 14px; color: #666; }
+.wpts-element { font-size: 16px; }
+.wpts-zodiac { font-size: 16px; }
+.wpts-day-detail { max-width: 500px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.wpts-stem-branch-large { font-size: 48px; text-align: center; margin: 15px 0; }
+.wpts-info-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.wpts-info-table td { padding: 8px; border-bottom: 1px solid #eee; }
+.wpts-info-table td:first-child { font-weight: 600; width: 40%; }
+.wpts-auspicious, .wpts-inauspicious { padding-left: 20px; }
+.wpts-auspicious li { color: #16a34a; margin-bottom: 4px; }
+.wpts-inauspicious li { color: #dc2626; margin-bottom: 4px; }
+.wpts-auspicious small, .wpts-inauspicious small { color: #999; }
