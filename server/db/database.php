@@ -12,6 +12,10 @@ class WPTS_DB {
         $this->init_tables();
     }
 
+    public function get_pdo() {
+        return $this->pdo;
+    }
+
     private function init_tables() {
         $this->pdo->exec("
             CREATE TABLE IF NOT EXISTS licenses (
@@ -32,6 +36,16 @@ class WPTS_DB {
                 site_url TEXT NOT NULL,
                 activated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                 UNIQUE(license_key, site_url)
+            );
+            CREATE TABLE IF NOT EXISTS payments (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                license_key TEXT NOT NULL,
+                payment_id TEXT NOT NULL,
+                provider TEXT NOT NULL,
+                plan TEXT NOT NULL,
+                amount REAL NOT NULL,
+                email TEXT,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             );
         ");
     }
@@ -75,6 +89,7 @@ class WPTS_DB {
 
     public function delete_license($key) {
         $this->pdo->prepare("DELETE FROM activations WHERE license_key = ?")->execute([$key]);
+        $this->pdo->prepare("DELETE FROM payments WHERE license_key = ?")->execute([$key]);
         $this->pdo->prepare("DELETE FROM licenses WHERE license_key = ?")->execute([$key]);
     }
 
